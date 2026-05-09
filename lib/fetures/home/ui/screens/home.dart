@@ -218,12 +218,16 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 SizedBox(height: 4),
-                Text(
-                  'Technologies & Services I Work With',
-                  style: TextStyle(
-                    fontSize: isMobile(context) ? 26 : 50,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 500),
+                  child: Text(
+                    'Technologies & Services I Work With',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 20 : 50,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
