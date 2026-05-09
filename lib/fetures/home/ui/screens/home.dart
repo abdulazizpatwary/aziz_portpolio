@@ -272,7 +272,7 @@ class _HomeState extends State<Home> {
                  ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 900),
                   child: Text(
-                    'I am a Mobile Application Developer skilled in Flutter and Android (Java). I build scalable, user-friendly apps with clean architecture and focus on performance and smooth user experience. I have experience working on real-world projects like eCommerce apps, Firebase integration, and API-based applications. I am passionate about learning new technologies and improving my development skills continuously.',
+                    "I am a Mobile Application Developer and a Computer Science and Engineering graduate. I specialize in Flutter development with a foundational understanding of Android (Java), focusing on building clean, scalable, and user-friendly mobile applications. I have worked on real-world projects such as eCommerce applications, Firebase-based apps, and API-integrated mobile solutions. These experiences have helped me gain practical knowledge of mobile app development, state management, and performance optimization. I am a passionate learner who continuously explores new technologies and improves my skills to build efficient and high-quality mobile applications. I am currently seeking opportunities to contribute and grow as a professional Flutter Developer.",
                     style: TextStyle(
                       fontSize: isMobile(context) ? 13 : 15,
                       color: const Color(0xFFD1D5DB),
