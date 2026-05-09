@@ -224,7 +224,7 @@ class _HomeState extends State<Home> {
                     'Technologies & Services I Work With',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: isMobile(context) ? 20 : 50,
+                      fontSize: isMobile(context) ? 20 : 40,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),

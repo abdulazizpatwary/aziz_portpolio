@@ -63197,7 +63197,7 @@ n=A.A2(A.d([A.Pr("Worked on",B.ej,B.ae,A.bT(a3,a3,B.i,a3,a3,a3,a3,a3,a3,a3,a3,A.
 l=A.c8(a3,4,a3)
 o=a2.c
 o.toString
-n=A.ha(A.d([n,l,new A.hb(new A.ai(0,500,0,1/0),A.hG("Technologies & Services I Work With",A.bT(a3,a3,B.i,a3,a3,a3,a3,a3,a3,a3,a3,A.aB(o,a3,s).w.a.a<600?20:50,a3,a3,B.c1,a3,a3,!0,a3,a3,a3,a3,a3,a3,a3,a3),B.aM),a3)],m),B.an,B.ab)
+n=A.ha(A.d([n,l,new A.hb(new A.ai(0,500,0,1/0),A.hG("Technologies & Services I Work With",A.bT(a3,a3,B.i,a3,a3,a3,a3,a3,a3,a3,a3,A.aB(o,a3,s).w.a.a<600?20:40,a3,a3,B.c1,a3,a3,!0,a3,a3,a3,a3,a3,a3,a3,a3),B.aM),a3)],m),B.an,B.ab)
 o=a2.c
 o.toString
 o=A.aB(o,a3,s).w.a.a<600?0:50
