@@ -171,6 +171,8 @@ class _HomeState extends State<Home> {
                             path: AssetsPath.gmailWebpUrl,
                             url: AppConstants.email,
                             isMobile: isMobile(context),
+                            isEmail:true,
+
                           ),
                           SizedBox(width: 15),
                           SocialIcon(

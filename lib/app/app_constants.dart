@@ -1,8 +1,8 @@
 class AppConstants {
   static const String githubUrl = 'https://github.com/abdulazizpatwary';
   static const String linkedinUrl = 'https://www.linkedin.com/in/abdul-aziz-patwary/';
-  static const String cvUrl = 'https://drive.google.com/file/d/19QQMeutCd9ijOnMYCN9984i5Wxgyvhwl/view?usp=sharing';
-  static const String callUrl = 'tel://+8801838967208';
+  static const String cvUrl = 'https://drive.google.com/drive/folders/16Rr_AJN8zCvU659MZ7Jk4QsdXmKJxxL5?usp=sharing';
+  static const String callUrl = 'tel:+8801838967208';
   static const String email = 'adnanazizmahin@gmail.com';
 
   static const String githubUrlforProject =
