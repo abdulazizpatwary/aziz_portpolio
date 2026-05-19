@@ -60,7 +60,7 @@ class _SocialIconState extends State<SocialIcon> {
           });
         },
         onTap: widget.isEmail == true ? _emailLauncher : _launchUrl,
-        child:(widget.decorateIcon ?? false)
+        child:(widget.decorateIcon)
             ? Container(
           padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(

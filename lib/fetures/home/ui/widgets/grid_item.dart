@@ -18,34 +18,42 @@ class GridItem extends StatelessWidget {
       margin: const EdgeInsets.all(12),
       decoration:
       BoxDecoration(
-        color: const Color(0XFF1E293B),
+        gradient: LinearGradient(colors: [
+          Color(0xFF020617),
+          Color(0xFF0B1120)
+        ]),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: Colors.white.withValues(alpha: 0.08),
         ),
       ),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Spacer(),
+          //const Spacer(),
+
+
+
+          ContentWidget(
+            model: model, isMobile: isMobile, isTablet: isTablet,
+          ),
+          //const Spacer(),
+          SizedBox(height: 16,),
           Text(
             model.title,
             textAlign: TextAlign.center,
+            maxLines: 1,
+
             style: TextStyle(
+              overflow: TextOverflow.ellipsis,
               fontSize: isMobile ? 20 : 25,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          ContentWidget(
-            model: model, isMobile: isMobile, isTablet: isTablet,
-          ),
-          const Spacer(),
+          SizedBox(height: 16,),
           Expanded(
             child: Text(
               model.description,

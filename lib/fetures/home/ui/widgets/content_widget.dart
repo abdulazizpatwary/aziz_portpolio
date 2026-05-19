@@ -40,7 +40,7 @@ class _ContentWidgetState extends State<ContentWidget> {
               borderRadius: BorderRadius.circular(16),
               child: Container(
                   padding: const EdgeInsets.all(20),
-                color: const Color(0XFF0F172A),
+                color: Colors.white,
                   alignment: Alignment.center,
                   child: Image.asset(
                     widget.model.imagePath!,

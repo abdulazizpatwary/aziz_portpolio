@@ -23,7 +23,7 @@ class TechnologyGridItem extends StatelessWidget {
           color: Colors.white.withValues(alpha: 0.08),
         ),
       ),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

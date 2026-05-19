@@ -36,8 +36,8 @@ class SkillSectionItemWidget extends StatelessWidget {
     double desiredCellHeight = isMobile
         ? 140
         : isTablet
-        ? 480
-        : 600;
+        ? 490
+        : 620;
     double childAspectRatio = cellWidth / desiredCellHeight;
     return GridView.builder(
       shrinkWrap: true,

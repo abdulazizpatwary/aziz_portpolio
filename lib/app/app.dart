@@ -11,6 +11,9 @@ class MyPortfolio extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
       theme: ThemeData(
+        appBarTheme: AppBarThemeData(
+          iconTheme: IconThemeData(color: Colors.white)
+        ),
         fontFamily: GoogleFonts.merriweatherSans().fontFamily,
         textTheme: TextTheme(
           titleLarge: TextStyle(fontWeight: FontWeight.w600,fontSize: 24,color: Colors.white),

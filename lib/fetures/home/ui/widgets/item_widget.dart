@@ -45,10 +45,10 @@ class ItemsWidget extends StatelessWidget {
     ];
     double cellWidth = ((MediaQuery.of(context).size.width - 0) / 2);
     double desiredCellHeight = isMobile
-        ? 200
+        ? 160
         : isTablet
-        ? 600
-        : 800;
+        ? 430
+        : 680;
     double childAspectRatio = cellWidth / desiredCellHeight;
     return GridView.builder(
       shrinkWrap: true,
