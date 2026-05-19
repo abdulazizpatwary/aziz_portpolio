@@ -366,7 +366,7 @@ class _HomeState extends State<Home> {
                 child: Transform.rotate(
                   angle: -0.25,
                   child: Container(
-                    width: 280,
+                    width: isMobile(context)?140:280,
                     height: 400,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -452,7 +452,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        SizedBox(height: isDesktop(context) ? 100 : 80),
+        SizedBox(height: isDesktop(context) ? 80 : 60),
         Container(
           key: projectsKey,
           width: double.infinity,
