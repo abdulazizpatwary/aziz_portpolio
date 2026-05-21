@@ -452,7 +452,7 @@ class _HomeState extends State<Home> {
                                       color: Colors.white54,
                                       //fontWeight: FontWeight.w400
                                     ),
-                                    speed: Duration(milliseconds: 40),
+                                    speed: Duration(milliseconds: 100),
                                   ),
                                 ],
                                 totalRepeatCount: 1,
@@ -559,11 +559,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-
                 SizedBox(height: 12),
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 900),
-                  child: Text(
+                  child: Text(textAlign: TextAlign.justify,
                     "I am a Mobile Application Developer and a Computer Science and Engineering graduate. I specialize in Flutter development with a foundational understanding of Android (Java), focusing on building clean, scalable, and user-friendly mobile applications. I have worked on real-world projects such as eCommerce applications, Firebase-based apps, and API-integrated mobile solutions. These experiences have helped me gain practical knowledge of mobile app development, state management, and performance optimization. I am a passionate learner who continuously explores new technologies and improves my skills to build efficient and high-quality mobile applications. I am currently seeking opportunities to contribute and grow as a professional Flutter Developer.",
                     style: TextStyle(
                       fontSize: isMobile(context) ? 13 : 15,
@@ -628,10 +627,12 @@ class _HomeState extends State<Home> {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 900),
                   child: Text(
-                    "Flutter and Android (Java) mobile app development with focus on scalable and user-friendly applications. Experienced in REST API integration and Firebase services including Authentication and Firestore. Skilled in state management using GetX, BLoC, and Provider (basic). Familiar with MVC and MVVM architecture patterns and clean code practices. Proficient in Dart, Java, SQLite, and Git/GitHub for version control and project management. Strong focus on performance optimization, UI/UX implementation, and problem-solving.",
+                    "Flutter and Android (Java) mobile app development with focus on scalable and user-friendly applications. Experienced in REST API integration and Firebase services including Authentication and Firestore. Skilled in state management using GetX, BLoC, and Provider (basic). Familiar with MVC and MVVM architecture patterns and clean code practices. Proficient in Dart, Java, SQLite, and Git/GitHub for version control and project management. Strong focus on performance optimization, UI/UX implementation, and problem-solving.",textAlign: TextAlign.justify,
                     style: TextStyle(
+
                       fontSize: isMobile(context) ? 13 : 15,
                       color: const Color(0xFFD1D5DB),
+
                       height: 1.7,
                       letterSpacing: 0.2,
                     ),
@@ -752,10 +753,13 @@ class _HomeState extends State<Home> {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 900),
                   child: RichText(
+                    textAlign: TextAlign.center,
                     text: TextSpan(
+
                       style: TextStyle(
                         fontSize: isMobile(context) ? 13 : 15,
                         color: Colors.grey.shade300,
+
                         height: 1.5,
                       ),
                       text:
