@@ -356,7 +356,7 @@ class _HomeState extends State<Home> {
     return Column(
       children: [
         SizedBox(
-          height: isDesktop(context) ? 600 : 600,
+          height: isDesktop(context) ? 600 : 565,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -366,7 +366,7 @@ class _HomeState extends State<Home> {
                 child: Transform.rotate(
                   angle: -0.25,
                   child: Container(
-                    width: isMobile(context)?140:280,
+                    width: isMobile(context)?160:280,
                     height: 400,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -397,54 +397,74 @@ class _HomeState extends State<Home> {
                   alignment: AlignmentDirectional.center,
                   child: Column(
                     children: [
-                      SizedBox(height: 80),
+                      SizedBox(height: 100),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          AssetsPath.profileImageWithOutBackgroundUrl,
+                        child: Container(
+
+                          height: 300,
                           width: 285,
-                          height: 260,
-                          fit: BoxFit.contain,
+                          decoration: BoxDecoration(
+                              //color: Colors.black,
+                            //image: DecorationImage(image: AssetImage(AssetsPath.profileImageWithOutBackgroundUrl,),fit: BoxFit.cover)
+                          ),
+                          child: Image.asset(
+                            AssetsPath.profileImageWithOutBackgroundUrl,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                      AnimatedTextKit(
-                        stopPauseOnTap: false,
-                        repeatForever: true,
+                      SizedBox(height: 16,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Column(
+                          children: [
+                            Center(
+                              child: AnimatedTextKit(
+                                stopPauseOnTap: false,
+                                repeatForever: true,
 
-                        animatedTexts: [
-                          ColorizeAnimatedText(
-                            'Abdul Aziz Patwary',
-                            textStyle: TextStyle(
-                              fontSize: isMobile(context) ? 32 : 50,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                                animatedTexts: [
+                                  ColorizeAnimatedText(
+                                    'Abdul Aziz Patwary',
+                                    textStyle: TextStyle(
+                                      fontSize: isMobile(context) ? 26 : 40,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                    colors: AppColors.textGradient,
+                                  ),
+                                ],
+                                isRepeatingAnimation: true,
+                                //onTap: () {},
+                              ),
                             ),
-                            colors: AppColors.textGradient,
-                          ),
-                        ],
-                        isRepeatingAnimation: true,
-                        //onTap: () {},
-                      ),
-                      SizedBox(height: 20),
-                      AnimatedTextKit(
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                            'Flutter Developer building modern mobile applications',
-                            textAlign: TextAlign.center,
-                            cursor: '|',
-                            textStyle: TextStyle(
-                              fontSize: isMobile(context) ? 16 : 20,
-                              color: Colors.white,
+                            SizedBox(height: 16),
+                            Center(
+                              child: AnimatedTextKit(
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    'Flutter Developer building modern mobile applications',
+                                    textAlign: TextAlign.center,
+                                    cursor: '',
+                                    textStyle: TextStyle(
+                                      fontSize: isMobile(context) ? 13 : 18,
+                                      color: Colors.white54,
+                                      //fontWeight: FontWeight.w400
+                                    ),
+                                    speed: Duration(milliseconds: 40),
+                                  ),
+                                ],
+                                totalRepeatCount: 1,
+                                pause: Duration(milliseconds: 300),
+                                displayFullTextOnTap: true,
+                                stopPauseOnTap: true,
+                              ),
                             ),
-                            speed: Duration(microseconds: 30),
-                          ),
-                        ],
-                        totalRepeatCount: 1,
-                        pause: Duration(microseconds: 200),
-                        displayFullTextOnTap: true,
-                        stopPauseOnTap: true,
+                          ],
+                        ),
                       ),
-                      if (isMobile(context)) SizedBox(height: 50),
+                      if (isMobile(context)) SizedBox(height: 8),
                     ],
                   ),
                 ),
@@ -452,114 +472,63 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        SizedBox(height: isDesktop(context) ? 80 : 60),
+        SizedBox(height: isDesktop(context) ? 16 : 12),
+
+
         Container(
-          key: projectsKey,
-          width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: isMobile(context) ? 0 : 50),
           decoration: BoxDecoration(
-            //color: const Color(0XFF111827),
-            borderRadius: BorderRadius.circular(20),
+            color: Colors.black
           ),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    children: [
-                      ShaderMask(
-                        shaderCallback: (bounds) => LinearGradient(
-                          colors: [Colors.blue.shade600, Colors.cyanAccent],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ).createShader(bounds),
-                        child: Text(
-                          " Latest Projects",
-                          style: TextStyle(
-                            fontSize: isMobile(context) ? 14 : 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Transforming Ideas into Exceptional',
-                        style: TextStyle(
-                          fontSize: isMobile(context) ? 20 : 28,
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      ColorizeAnimatedText(
+                        "Worked on",
+                        textStyle: TextStyle(
+                          fontSize: isMobile(context) ? 14 : 18,
                           color: Colors.white,
+                          fontWeight: FontWeight.w400,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      SizedBox(
-                        width: isDesktop(context) ? 350 : 300,
-                        child: Text(
-                          'A collection if Flutter projects focused on clean UI, performance, and Real world problem solving.',
-                          style: TextStyle(color: Colors.white54),
-                        ),
+                        colors: AppColors.textGradient,
                       ),
                     ],
                   ),
+                  SizedBox(height: 4),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 600),
+                    child: Text(
+                      'Technologies & Services I Work With',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: isMobile(context) ? 18 : 24,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: 16),
-              ItemsWidget(
-                isMobile: isMobile(context),
-                isTablet: isTablet(context),
+              SizedBox(height: 8,),
+              Container(
+                key: servicesKey,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(
+                  horizontal: isMobile(context) ? 0 : 50,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: TechnologyServicesItemWidget(
+                  isMobile: isMobile(context),
+                  isTablet: isTablet(context),
+                ),
               ),
             ],
           ),
-        ),
-        SizedBox(height: 48),
-        Column(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AnimatedTextKit(
-                  animatedTexts: [
-                    ColorizeAnimatedText(
-                      "Worked on",
-                      textStyle: TextStyle(
-                        fontSize: isMobile(context) ? 20 : 28,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      colors: AppColors.textGradient,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 4),
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 500),
-                  child: Text(
-                    'Technologies & Services I Work With',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: isMobile(context) ? 20 : 40,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              key: servicesKey,
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(
-                horizontal: isMobile(context) ? 0 : 50,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: TechnologyServicesItemWidget(
-                isMobile: isMobile(context),
-                isTablet: isTablet(context),
-              ),
-            ),
-          ],
         ),
         SizedBox(height: 80),
         Container(
@@ -567,43 +536,46 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.all(isMobile(context) ? 16 : 24),
           width: double.infinity,
           margin: EdgeInsets.symmetric(horizontal: isMobile(context) ? 0 : 55),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ShaderMask(
-                shaderCallback: (bounds) => LinearGradient(
-                  colors: [Colors.blue.shade600, Colors.cyanAccent],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                ).createShader(bounds),
-                child: Text(
-                  'ABOUT ME',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                    fontSize: isMobile(context) ? 18 : 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: isMobile(context)?8:0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ShaderMask(
+                  shaderCallback: (bounds) => LinearGradient(
+                    colors: [Colors.blue.shade600, Colors.cyanAccent],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ).createShader(bounds),
+                  child: Text(
+                    'ABOUT ME',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 18 : 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2,
+                    ),
                   ),
                 ),
-              ),
 
-              SizedBox(height: 12),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 900),
-                child: Text(
-                  "I am a Mobile Application Developer and a Computer Science and Engineering graduate. I specialize in Flutter development with a foundational understanding of Android (Java), focusing on building clean, scalable, and user-friendly mobile applications. I have worked on real-world projects such as eCommerce applications, Firebase-based apps, and API-integrated mobile solutions. These experiences have helped me gain practical knowledge of mobile app development, state management, and performance optimization. I am a passionate learner who continuously explores new technologies and improves my skills to build efficient and high-quality mobile applications. I am currently seeking opportunities to contribute and grow as a professional Flutter Developer.",
-                  style: TextStyle(
-                    fontSize: isMobile(context) ? 13 : 15,
-                    color: const Color(0xFFD1D5DB),
-                    fontWeight: FontWeight.w300,
-                    height: 1.7,
-                    letterSpacing: 0.2,
+                SizedBox(height: 12),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 900),
+                  child: Text(
+                    "I am a Mobile Application Developer and a Computer Science and Engineering graduate. I specialize in Flutter development with a foundational understanding of Android (Java), focusing on building clean, scalable, and user-friendly mobile applications. I have worked on real-world projects such as eCommerce applications, Firebase-based apps, and API-integrated mobile solutions. These experiences have helped me gain practical knowledge of mobile app development, state management, and performance optimization. I am a passionate learner who continuously explores new technologies and improves my skills to build efficient and high-quality mobile applications. I am currently seeking opportunities to contribute and grow as a professional Flutter Developer.",
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 13 : 15,
+                      color: const Color(0xFFD1D5DB),
+                      fontWeight: FontWeight.w300,
+                      height: 1.7,
+                      letterSpacing: 0.2,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         SizedBox(height: 80),
@@ -619,55 +591,132 @@ class _HomeState extends State<Home> {
             border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
           ),
           padding: EdgeInsets.all(isMobile(context) ? 16 : 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(height: 10,),
-              ShaderMask(
-                shaderCallback: (bounds) => LinearGradient(
-                  colors: [Colors.blue.shade600, Colors.cyanAccent],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                ).createShader(bounds),
-                child: Text(
-                  "SKILL SET",
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: isMobile(context)?8:0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 10,),
+                ShaderMask(
+                  shaderCallback: (bounds) => LinearGradient(
+                    colors: [Colors.blue.shade600, Colors.cyanAccent],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ).createShader(bounds),
+                  child: Text(
+                    "SKILL SET",
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 16 : 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 8),
+                Text(
+                  'Technical Skills & Expertise',
                   style: TextStyle(
-                    fontSize: isMobile(context) ? 16 : 20,
-                    color: Colors.white,
+                    fontSize: isMobile(context) ? 18 : 24,
+                    color: Colors.grey.shade300,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
+                SizedBox(height: 8),
 
-              SizedBox(height: 8),
-              Text(
-                'Technical Skills & Expertise',
-                style: TextStyle(
-                  fontSize: isMobile(context) ? 18 : 24,
-                  color: Colors.grey.shade300,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 8),
-
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 900),
-                child: Text(
-                  "Flutter and Android (Java) mobile app development with focus on scalable and user-friendly applications. Experienced in REST API integration and Firebase services including Authentication and Firestore. Skilled in state management using GetX, BLoC, and Provider (basic). Familiar with MVC and MVVM architecture patterns and clean code practices. Proficient in Dart, Java, SQLite, and Git/GitHub for version control and project management. Strong focus on performance optimization, UI/UX implementation, and problem-solving.",
-                  style: TextStyle(
-                    fontSize: isMobile(context) ? 13 : 15,
-                    color: const Color(0xFFD1D5DB),
-                    height: 1.7,
-                    letterSpacing: 0.2,
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 900),
+                  child: Text(
+                    "Flutter and Android (Java) mobile app development with focus on scalable and user-friendly applications. Experienced in REST API integration and Firebase services including Authentication and Firestore. Skilled in state management using GetX, BLoC, and Provider (basic). Familiar with MVC and MVVM architecture patterns and clean code practices. Proficient in Dart, Java, SQLite, and Git/GitHub for version control and project management. Strong focus on performance optimization, UI/UX implementation, and problem-solving.",
+                    style: TextStyle(
+                      fontSize: isMobile(context) ? 13 : 15,
+                      color: const Color(0xFFD1D5DB),
+                      height: 1.7,
+                      letterSpacing: 0.2,
+                    ),
                   ),
                 ),
-              ),
 
+                SizedBox(height: 16),
+                SkillSectionItemWidget(
+                  isMobile: isMobile(context),
+                  isTablet: isTablet(context),
+                ),
+              ],
+            ),
+          ),
+        ),
+    SizedBox(height: 80),
+
+
+        Container(
+          key: projectsKey,
+          width: double.infinity,
+          margin: EdgeInsets.symmetric(horizontal: isMobile(context) ? 0 : 50),
+          decoration: BoxDecoration(
+            //color: const Color(0XFF111827),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            children: [
+              FittedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        ShaderMask(
+                          shaderCallback: (bounds) => LinearGradient(
+                            colors: [Colors.blue.shade600, Colors.cyanAccent],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ).createShader(bounds),
+                          child: Text(
+                            " Latest Projects",
+                            style: TextStyle(
+                              fontSize: isMobile(context) ? 14 : 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: FittedBox(
+                            child: Text(
+                              'Transforming Ideas into Exceptional',
+                              style: TextStyle(
+                                fontSize: isMobile(context) ? 18 : 28,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        SizedBox(
+                          width: isDesktop(context) ? 350 : 300,
+                          child: Center(
+                            child: Text(
+                              'A collection if Flutter projects focused on clean UI, performance, and Real world problem solving.',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white54),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: 16),
-              SkillSectionItemWidget(
-                isMobile: isMobile(context),
-                isTablet: isTablet(context),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                child: ItemsWidget(
+                  isMobile: isMobile(context),
+                  isTablet: isTablet(context),
+                ),
               ),
             ],
           ),
