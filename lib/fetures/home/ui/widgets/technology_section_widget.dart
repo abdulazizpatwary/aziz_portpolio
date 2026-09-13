@@ -48,6 +48,11 @@ class TechnologyServicesItemWidget extends StatelessWidget {
         iconData: Icons.map
 
       ),
+      ItemsDataModel(
+        title: "Backend for Mobile Apps",
+        description: "Building and integrating REST APIs with Node.js, Express, and MongoDB to power backend-driven Flutter applications.",
+        iconData: Icons.dns_rounded,
+      ),
     ];
     double cellWidth = ((MediaQuery.of(context).size.width - 0) / 2);
     double desiredCellHeight = isMobile

@@ -351,7 +351,6 @@ class _HomeState extends State<Home> {
   Widget dataBody() {
     return Column(
       children: [
-        // ===== FIX 1: ConstrainedBox(minHeight) instead of fixed-height SizedBox =====
         ConstrainedBox(
           constraints: BoxConstraints(
             minHeight: isDesktop(context) ? 600 : 565,
@@ -359,7 +358,6 @@ class _HomeState extends State<Home> {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              // ===== FIX 2: Positioned.fill so this doesn't fight Stack sizing =====
               Positioned.fill(child: Container(color: Colors.black)),
               Positioned(
                 top: -20,
