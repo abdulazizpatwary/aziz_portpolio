@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
 
   bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width < 1000 &&
-      MediaQuery.of(context).size.width >= 600;
+          MediaQuery.of(context).size.width >= 600;
 
   bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1000;
@@ -67,55 +67,53 @@ class _HomeState extends State<Home> {
 
       appBar: isMobile(context)
           ? AppBar(
-              backgroundColor: Color(0XFF1E293B),
-              //title: const Text("Portfolio",style: TextStyle(color:Colors.white),),
-            )
+        backgroundColor: Color(0XFF1E293B),
+      )
           : AppBar(
-              backgroundColor: Color(0XFF1E293B),
-              elevation: 0,
-              toolbarHeight: 70,
+        backgroundColor: Color(0XFF1E293B),
+        elevation: 0,
+        toolbarHeight: 70,
 
-              title: isDesktop(context) ? builditleSeectionDesktop() : null,
+        title: isDesktop(context) ? builditleSeectionDesktop() : null,
 
-              actions: [
-                SocialIcon(
-                  path: AssetsPath.githubWebpUrl,
-                  url: AppConstants.githubUrl,
-                  isMobile: false,
-                ),
-                const SizedBox(width: 10),
-                SocialIcon(
-                  path: AssetsPath.linkedInWebpUrlWebp,
-                  url: AppConstants.linkedinUrl,
-                  isMobile: false,
-                ),
-                const SizedBox(width: 20),
-                SocialIcon(
-                  path: AssetsPath.gmailWebpUrl,
-                  url: AppConstants.email,
-                  isMobile: isMobile(context),
-                  isEmail: true,
-                ),
-                const SizedBox(width: 20),
-                SocialIcon(
-                  path: AssetsPath.cvWebUrl,
-                  url: AppConstants.cvUrl,
-                  isMobile: isMobile(context),
-                ),
-                const SizedBox(width: 20),
-                SocialIcon(
-                  path: AssetsPath.callWebpUrl,
-                  url: AppConstants.callUrl,
-                  isMobile: isMobile(context),
-                ),
-                const SizedBox(width: 20),
-              ],
-            ),
+        actions: [
+          SocialIcon(
+            path: AssetsPath.githubWebpUrl,
+            url: AppConstants.githubUrl,
+            isMobile: false,
+          ),
+          const SizedBox(width: 10),
+          SocialIcon(
+            path: AssetsPath.linkedInWebpUrlWebp,
+            url: AppConstants.linkedinUrl,
+            isMobile: false,
+          ),
+          const SizedBox(width: 20),
+          SocialIcon(
+            path: AssetsPath.gmailWebpUrl,
+            url: AppConstants.email,
+            isMobile: isMobile(context),
+            isEmail: true,
+          ),
+          const SizedBox(width: 20),
+          SocialIcon(
+            path: AssetsPath.cvWebUrl,
+            url: AppConstants.cvUrl,
+            isMobile: isMobile(context),
+          ),
+          const SizedBox(width: 20),
+          SocialIcon(
+            path: AssetsPath.callWebpUrl,
+            url: AppConstants.callUrl,
+            isMobile: isMobile(context),
+          ),
+          const SizedBox(width: 20),
+        ],
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          //color: Colors.black
           gradient: LinearGradient(
             colors: [Color(0xFF071018), Colors.black, Color(0xFF071018)],
             begin: Alignment.topCenter,
@@ -126,7 +124,6 @@ class _HomeState extends State<Home> {
           controller: _scrollController,
           child: Column(
             children: [
-              ///SizedBox(height: 80),
               ScreenTypeLayout.builder(
                 mobile: (context) => dataBody(),
                 tablet: (context) => dataBody(),
@@ -174,7 +171,6 @@ class _HomeState extends State<Home> {
         children: [
           SafeArea(
             child: Container(
-              //width: double.infinity,
               alignment: Alignment.topRight,
               padding: EdgeInsets.only(right: 8),
               child: IconButton(
@@ -355,18 +351,22 @@ class _HomeState extends State<Home> {
   Widget dataBody() {
     return Column(
       children: [
-        SizedBox(
-          height: isDesktop(context) ? 600 : 565,
+        // ===== FIX 1: ConstrainedBox(minHeight) instead of fixed-height SizedBox =====
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: isDesktop(context) ? 600 : 565,
+          ),
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Container(width: double.infinity, color: Colors.black),
+              // ===== FIX 2: Positioned.fill so this doesn't fight Stack sizing =====
+              Positioned.fill(child: Container(color: Colors.black)),
               Positioned(
                 top: -20,
                 child: Transform.rotate(
                   angle: -0.25,
                   child: Container(
-                    width: isMobile(context)?160:280,
+                    width: isMobile(context) ? 160 : 280,
                     height: 400,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -396,39 +396,36 @@ class _HomeState extends State<Home> {
                 child: Align(
                   alignment: AlignmentDirectional.center,
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(height: 100),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
                         child: Container(
-
                           height: 300,
                           width: 285,
-                          decoration: BoxDecoration(
-                              //color: Colors.black,
-                            //image: DecorationImage(image: AssetImage(AssetsPath.profileImageWithOutBackgroundUrl,),fit: BoxFit.cover)
-                          ),
+                          decoration: BoxDecoration(),
                           child: Image.asset(
                             AssetsPath.profileImageWithOutBackgroundUrl,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      SizedBox(height: 16,),
+                      SizedBox(height: 16),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Center(
                               child: AnimatedTextKit(
                                 stopPauseOnTap: false,
                                 repeatForever: true,
-
                                 animatedTexts: [
                                   ColorizeAnimatedText(
                                     'Abdul Aziz Patwary',
                                     textStyle: TextStyle(
-                                      fontSize: isMobile(context) ? 26 : 40,
+                                      fontSize: isMobile(context) ? 24 : 40,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w800,
                                     ),
@@ -436,7 +433,6 @@ class _HomeState extends State<Home> {
                                   ),
                                 ],
                                 isRepeatingAnimation: true,
-                                //onTap: () {},
                               ),
                             ),
                             SizedBox(height: 16),
@@ -448,9 +444,8 @@ class _HomeState extends State<Home> {
                                     textAlign: TextAlign.center,
                                     cursor: '',
                                     textStyle: TextStyle(
-                                      fontSize: isMobile(context) ? 13 : 18,
+                                      fontSize: isMobile(context) ? 12 : 18,
                                       color: Colors.white54,
-                                      //fontWeight: FontWeight.w400
                                     ),
                                     speed: Duration(milliseconds: 100),
                                   ),
@@ -474,11 +469,8 @@ class _HomeState extends State<Home> {
         ),
         SizedBox(height: isDesktop(context) ? 16 : 12),
 
-
         Container(
-          decoration: BoxDecoration(
-            color: Colors.black
-          ),
+          decoration: BoxDecoration(color: Colors.black),
           child: Column(
             children: [
               Column(
@@ -512,7 +504,7 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              SizedBox(height: 8,),
+              SizedBox(height: 8),
               Container(
                 key: servicesKey,
                 width: double.infinity,
@@ -537,7 +529,7 @@ class _HomeState extends State<Home> {
           width: double.infinity,
           margin: EdgeInsets.symmetric(horizontal: isMobile(context) ? 0 : 55),
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: isMobile(context)?8:0),
+            padding: EdgeInsets.symmetric(horizontal: isMobile(context) ? 8 : 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -562,14 +554,15 @@ class _HomeState extends State<Home> {
                 SizedBox(height: 12),
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 900),
-                  child: Text(textAlign: TextAlign.justify,
+                  child: Text(
                     "I am a Mobile Application Developer and a Computer Science and Engineering graduate. I specialize in Flutter development with a foundational understanding of Android (Java), focusing on building clean, scalable, and user-friendly mobile applications. I have worked on real-world projects such as eCommerce applications, Firebase-based apps, and API-integrated mobile solutions. These experiences have helped me gain practical knowledge of mobile app development, state management, and performance optimization. I am a passionate learner who continuously explores new technologies and improves my skills to build efficient and high-quality mobile applications. I am currently seeking opportunities to contribute and grow as a professional Flutter Developer.",
+                    textAlign: isMobile(context) ? TextAlign.start : TextAlign.justify,
                     style: TextStyle(
-                      fontSize: isMobile(context) ? 13 : 15,
+                      fontSize: isMobile(context) ? 14  : 15,
                       color: const Color(0xFFD1D5DB),
                       fontWeight: FontWeight.w300,
-                      height: 1.7,
-                      letterSpacing: 0.2,
+                      height: isMobile(context) ? 1.55 : 1.5,
+                      letterSpacing: isMobile(context) ? 0 : 0.2,
                     ),
                   ),
                 ),
@@ -591,12 +584,12 @@ class _HomeState extends State<Home> {
           ),
           padding: EdgeInsets.all(isMobile(context) ? 16 : 24),
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: isMobile(context)?8:0),
+            padding: EdgeInsets.symmetric(horizontal: isMobile(context) ? 8 : 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 10,),
+                SizedBox(height: 10),
                 ShaderMask(
                   shaderCallback: (bounds) => LinearGradient(
                     colors: [Colors.blue.shade600, Colors.cyanAccent],
@@ -612,7 +605,6 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-
                 SizedBox(height: 8),
                 Text(
                   'Technical Skills & Expertise',
@@ -623,22 +615,19 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(height: 8),
-
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 900),
                   child: Text(
-                    "Flutter and Android (Java) mobile app development with focus on scalable and user-friendly applications. Experienced in REST API integration and Firebase services including Authentication and Firestore. Skilled in state management using GetX, BLoC, and Provider (basic). Familiar with MVC and MVVM architecture patterns and clean code practices. Proficient in Dart, Java, SQLite, and Git/GitHub for version control and project management. Strong focus on performance optimization, UI/UX implementation, and problem-solving.",textAlign: TextAlign.justify,
+                    "Flutter and Android (Java) mobile app development with focus on scalable and user-friendly applications. Experienced in REST API integration and Firebase services including Authentication and Firestore. Skilled in state management using GetX, BLoC, and Provider (basic). Familiar with MVC and MVVM architecture patterns and clean code practices. Proficient in Dart, Java, SQLite, and Git/GitHub for version control and project management. Strong focus on performance optimization, UI/UX implementation, and problem-solving.",
+                    textAlign: isMobile(context) ? TextAlign.start : TextAlign.justify,
                     style: TextStyle(
-
-                      fontSize: isMobile(context) ? 13 : 15,
+                      fontSize: isMobile(context) ? 14  : 15,
                       color: const Color(0xFFD1D5DB),
-
-                      height: 1.7,
-                      letterSpacing: 0.2,
+                      height: isMobile(context) ? 1.55 : 1.5,
+                      letterSpacing:isMobile(context) ? 0 : 0.2,
                     ),
                   ),
                 ),
-
                 SizedBox(height: 16),
                 SkillSectionItemWidget(
                   isMobile: isMobile(context),
@@ -648,15 +637,13 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-    SizedBox(height: 80),
-
+        SizedBox(height: 80),
 
         Container(
           key: projectsKey,
           width: double.infinity,
           margin: EdgeInsets.symmetric(horizontal: isMobile(context) ? 0 : 50),
           decoration: BoxDecoration(
-            //color: const Color(0XFF111827),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -700,7 +687,7 @@ class _HomeState extends State<Home> {
                           width: isDesktop(context) ? 350 : 300,
                           child: Center(
                             child: Text(
-                              'A collection if Flutter projects focused on clean UI, performance, and Real world problem solving.',
+                              'A collection of Flutter projects focused on clean UI, performance, and Real world problem solving.',
                               textAlign: TextAlign.center,
                               style: TextStyle(color: Colors.white54),
                             ),
@@ -755,15 +742,13 @@ class _HomeState extends State<Home> {
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
-
                       style: TextStyle(
                         fontSize: isMobile(context) ? 13 : 15,
                         color: Colors.grey.shade300,
-
                         height: 1.5,
                       ),
                       text:
-                          "I’m always excited to connect with new people, collaborate on interesting ideas, and discuss mobile development and programming. Feel free to reach out if you have a project idea, opportunity, or just want to talk tech.You can contact me through the social links above or directly via email at ",
+                      "I’m always excited to connect with new people, collaborate on interesting ideas, and discuss mobile development and programming. Feel free to reach out if you have a project idea, opportunity, or just want to talk tech.You can contact me through the social links above or directly via email at ",
                       children: [
                         TextSpan(
                           text: "adnanazizmahin@gmail.com",

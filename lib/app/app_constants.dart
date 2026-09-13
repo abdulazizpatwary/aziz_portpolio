@@ -18,7 +18,7 @@ class AppConstants {
       "$githubUrlforProject/FootBallLiveScoreSimpleApp-FirebaseFirestore-FirebaseCloudMessaging-";
 
   static const String artConnect =
-      "$githubUrlforProject/ArtConnect";
+      "$githubUrlforProject/ArtConnect-APK/releases";
   static const String devineCareApp = "";
 
   static const String scube =

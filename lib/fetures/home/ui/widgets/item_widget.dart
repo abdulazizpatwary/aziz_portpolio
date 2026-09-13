@@ -16,6 +16,12 @@ class ItemsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<ItemsDataModel> itemsData = [
       ItemsDataModel(
+        title: "ArtConnect",
+        imagePath: AssetsPath.artConnectWebp,
+        description: "Social platform for artists to share and discover artwork.",
+        githubUrl: AppConstants.artConnect,
+      ),
+      ItemsDataModel(
         title: "Ecommerce",
         imagePath:AssetsPath.ecommerceLogowebp,
         description: "Modern ecommerce app with cart, payment, and authentication features.",
@@ -28,14 +34,7 @@ class ItemsWidget extends StatelessWidget {
         description: "Task management app for organizing daily activities efficiently.",
         githubUrl:AppConstants.taskManger,
       ),
-      ItemsDataModel(
-        title: "ArtConnects",
-        imagePath:AssetsPath.artConnectWebp,
-        description: "Social platform for artists to share and discover artwork.",
-        githubUrl:AppConstants.artConnect,
 
-
-      ),
       ItemsDataModel(
         title: "Football LiveScore",
         imagePath:AssetsPath.footballLivewebp,
